@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — ClipVault</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0a0f;
+      --surface:   #12121a;
+      --border:    #1e1e2e;
+      --accent:    #7c3aed;
+      --accent-hi: #9d5ff5;
+      --accent-glow: rgba(124, 58, 237, 0.35);
+      --text:      #e2e2f0;
+      --muted:     #7a7a9a;
+      --white:     #ffffff;
+      --radius:    12px;
+      --radius-lg: 20px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124,58,237,0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 40px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,15,0.7);
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent) 0%, #4f26b8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-icon svg { width: 18px; height: 18px; }
+
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      padding: 7px 16px;
+      border-radius: 8px;
+      transition: color .15s, border-color .15s, background .15s;
+    }
+
+    .nav-back:hover {
+      color: var(--text);
+      border-color: var(--accent);
+      background: rgba(124,58,237,0.08);
+    }
+
+    .nav-back svg { width: 14px; height: 14px; }
+
+    main {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      max-width: 760px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    .page-header {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(124,58,237,0.12);
+      border: 1px solid rgba(124,58,237,0.3);
+      color: var(--accent-hi);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .page-header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .page-header p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .content h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 36px 0 10px;
+      padding-top: 4px;
+    }
+
+    .content h2:first-child { margin-top: 0; }
+
+    .content p, .content li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .content p + p { margin-top: 10px; }
+
+    .content ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    .content li { margin-bottom: 7px; }
+
+    .content strong { color: var(--text); font-weight: 600; }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 24px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer p {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: color .15s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+    .footer-links a.active { color: var(--accent-hi); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      main { padding: 40px 20px 60px; }
+      footer { flex-direction: column; align-items: flex-start; padding: 20px; }
+      .page-header h1 { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="index.html">
+      <span class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="5 3 19 12 5 21 5 3"/>
+        </svg>
+      </span>
+      ClipVault
+    </a>
+    <a class="nav-back" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+      Back to Home
+    </a>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <div class="page-label">Legal</div>
+      <h1>Privacy Policy</h1>
+      <p>Effective Date: June 30, 2026</p>
+    </div>
+
+    <div class="content">
+      <p>Your privacy is important to us. This Privacy Policy explains how ClipVault, Inc. ("we," "us," or "our") collects, uses, discloses, and safeguards your information when you use the ClipVault service ("Service"). Please read this policy carefully.</p>
+
+      <h2>1. Information We Collect</h2>
+      <p><strong>Information you provide directly:</strong></p>
+      <ul>
+        <li><strong>Email address</strong> — collected when you join our waitlist or create an account.</li>
+        <li><strong>Account details</strong> — name, username, and profile information provided at registration.</li>
+        <li><strong>User Content</strong> — videos, clips, thumbnails, and metadata you upload to the Service.</li>
+        <li><strong>Communications</strong> — messages you send to us via email or support channels.</li>
+      </ul>
+
+      <p><strong>Information collected automatically:</strong></p>
+      <ul>
+        <li><strong>Usage data</strong> — pages visited, features used, time spent, and interaction patterns.</li>
+        <li><strong>Device information</strong> — browser type, operating system, device identifiers, and IP address.</li>
+        <li><strong>Cookies and similar technologies</strong> — session cookies, analytics trackers, and preference cookies.</li>
+      </ul>
+
+      <h2>2. How We Use Your Information</h2>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Operate, maintain, and improve the Service.</li>
+        <li>Send you launch updates and product announcements (only if you joined the waitlist).</li>
+        <li>Respond to your questions, comments, and support requests.</li>
+        <li>Detect, investigate, and prevent fraudulent or unauthorized activity.</li>
+        <li>Comply with legal obligations and enforce our Terms of Service.</li>
+        <li>Analyze usage trends to improve user experience.</li>
+      </ul>
+
+      <h2>3. How We Share Your Information</h2>
+      <p>We do not sell, trade, or rent your personal information to third parties. We may share your information with:</p>
+      <ul>
+        <li><strong>Service providers</strong> — trusted vendors who help us operate the Service (e.g., cloud hosting, email delivery, analytics), bound by confidentiality agreements.</li>
+        <li><strong>Legal authorities</strong> — when required by law, court order, or government regulation.</li>
+        <li><strong>Business transfers</strong> — in the event of a merger, acquisition, or asset sale, your data may be transferred as part of the transaction.</li>
+      </ul>
+
+      <h2>4. Cookies &amp; Tracking Technologies</h2>
+      <p>We use cookies and similar technologies to operate the Service and gather analytics. You may configure your browser to refuse all cookies or to indicate when a cookie is being sent. Some features of the Service may not function properly if cookies are disabled.</p>
+      <ul>
+        <li><strong>Essential cookies</strong> — required for the Service to function.</li>
+        <li><strong>Analytics cookies</strong> — help us understand how the Service is used.</li>
+        <li><strong>Preference cookies</strong> — remember your settings and preferences.</li>
+      </ul>
+
+      <h2>5. Data Retention</h2>
+      <p>We retain personal information for as long as necessary to provide the Service and fulfill the purposes outlined in this policy, unless a longer retention period is required or permitted by law. Waitlist email addresses are retained until launch or until you unsubscribe, whichever comes first.</p>
+
+      <h2>6. Data Security</h2>
+      <p>We implement industry-standard technical and organizational measures to protect your information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+      <h2>7. Your Rights</h2>
+      <p>Depending on your jurisdiction, you may have the following rights regarding your personal information:</p>
+      <ul>
+        <li><strong>Access</strong> — request a copy of the data we hold about you.</li>
+        <li><strong>Correction</strong> — request correction of inaccurate or incomplete data.</li>
+        <li><strong>Deletion</strong> — request deletion of your personal data ("right to be forgotten").</li>
+        <li><strong>Portability</strong> — receive your data in a structured, machine-readable format.</li>
+        <li><strong>Opt-out</strong> — unsubscribe from marketing communications at any time.</li>
+        <li><strong>Restriction</strong> — request that we limit our processing of your data.</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at <strong>privacy@clipvault.com</strong>.</p>
+
+      <h2>8. Children's Privacy</h2>
+      <p>The Service is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected personal information from a child under 13 without parental consent, we will take steps to delete that information.</p>
+
+      <h2>9. International Transfers</h2>
+      <p>Your information may be transferred to and processed in countries other than your country of residence. These countries may have different data protection laws. When transferring data internationally, we use appropriate safeguards such as Standard Contractual Clauses approved by the European Commission.</p>
+
+      <h2>10. Third-Party Services</h2>
+      <p>The Service does not currently contain links to third-party websites. When the Service launches, any integrations with third-party platforms will be governed by those platforms' own privacy policies. We are not responsible for the privacy practices of third parties.</p>
+
+      <h2>11. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy periodically to reflect changes in our practices or legal requirements. We will notify you of material changes by email (if applicable) or by posting a prominent notice in the Service. The "Effective Date" at the top of this policy indicates when it was last revised.</p>
+
+      <h2>12. Contact Us</h2>
+      <p>If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:</p>
+      <p style="margin-top:10px;"><strong>ClipVault, Inc.</strong><br>Email: <strong>privacy@clipvault.com</strong></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 ClipVault, Inc. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html" class="active">Privacy Policy</a>
+    </div>
+  </footer>
+
+</body>
+</html>
